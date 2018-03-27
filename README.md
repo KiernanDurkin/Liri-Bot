@@ -1,5 +1,5 @@
 # Liri-Bot
-App Description
+#App Description
 LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 Description on how to use the app
 
@@ -14,7 +14,7 @@ Description on how to use the app
     If no song is typed in after the spotify-this-song, a default song will be searched.
     If no movie is typed in after the movie-this, a default movie will be searched.
 
-Requirements
+#Requirements
 Before You Begin
 
     LIRI will display your latest tweets. If you don't already have an account on Twitter, make one and post a few tweets about your latest projects.
@@ -27,7 +27,7 @@ Before You Begin
         Request
             You'll use Request to grab data from the OMDB API.
 
-Instructions
+#Instructions
 
     Make a .gitignore file and add the following lines to it.
 
@@ -73,7 +73,7 @@ exports.twitterKeys = {
 
         do-what-it-says
 
-What Each Command Should Do
+#What Each Command Should Do
 
     node liri.js my-tweets
         This will show your last 20 tweets and when they were created at in your terminal/bash window.
@@ -112,7 +112,7 @@ What Each Command Should Do
             It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
             Feel free to change the text in that document to test out the feature for other commands.
 
-BONUS
+#BONUS
 
     In addition to logging the data to your terminal/bash window, output the data to a .txt file called log.txt.
 
@@ -120,7 +120,7 @@ BONUS
 
     Do not overwrite your file each time you run a command.
 
-Technologies Used
+#Technologies Used
 
     Node.js
     Javascript
