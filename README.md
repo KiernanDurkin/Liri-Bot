@@ -1,43 +1,48 @@
-# Liri-Bot
-App Description
-LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
-Description on how to use the app
+## App Description
 
-    Once cd-ing into the LIRI-Bot directory, type in: node liri.js INSERTCOMMAND
-    List of commands:
+#### LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 
-    my-tweets
-    spotify-this-song
-    movie-this
-    do-what-it-says
+## Description on how to use the app
 
-    If no song is typed in after the spotify-this-song, a default song will be searched.
-    If no movie is typed in after the movie-this, a default movie will be searched.
+ - Once cd-ing into the LIRI-Bot directory, type in: node liri.js INSERTCOMMAND 
+ - List of commands:
+  1. my-tweets
+  2. spotify-this-song
+  3. movie-this
+  4. do-what-it-says
+ - If no song is typed in after the spotify-this-song, a default song will be searched. 
+ - If no movie is typed in after the movie-this, a default movie will be searched. 
 
-Requirements
-Before You Begin
+## Requirements
 
-    LIRI will display your latest tweets. If you don't already have an account on Twitter, make one and post a few tweets about your latest projects.
+### Before You Begin
 
-    Make a new GitHub repository called liri-node-app and clone it to your computer.
+1. LIRI will display your latest tweets. If you don't already have an account on Twitter, make one and post a few tweets about your latest projects.
 
-    To retrieve the data that will power this app, you'll need to send requests to the Twitter, Spotify and IMDB APIs. You'll find these Node packages crucial for your assignment.
-        Twitter
-        Spotify
-        Request
-            You'll use Request to grab data from the OMDB API.
+2. Make a new GitHub repository called liri-node-app and clone it to your computer.
 
-Instructions
+3. To retrieve the data that will power this app, you'll need to send requests to the Twitter, Spotify and IMDB APIs. You'll find these Node packages crucial for your assignment.
 
-    Make a .gitignore file and add the following lines to it.
+   * [Twitter](https://www.npmjs.com/package/twitter)
+   * [Spotify](https://www.npmjs.com/package/spotify)
+   * [Request](https://www.npmjs.com/package/request)
+     * You'll use Request to grab data from the [OMDB API](http://www.omdbapi.com).
 
+### Instructions
+
+1. Make a .gitignore file and add the following lines to it.
+
+
+```
 node_modules
 .DS_Store
+```
 
-    Make a JavaScript file named keys.js. Do Not add this file to the .gitignore. This would be a good thing to do in the real world, but it makes grading this assignment a challenge.
+2. Make a JavaScript file named `keys.js`. **Do Not** add this file to the .gitignore. This would be a good thing to do in the real world, but it makes grading this assignment a challenge.
 
 Inside keys.js your file will look like this:
 
+```JavaScript
 console.log('this is loaded');
 
 exports.twitterKeys = {
@@ -46,83 +51,92 @@ exports.twitterKeys = {
   access_token_key: '<input here>',
   access_token_secret: '<input here>',
 }
+```
 
-    Get your Twitter API keys by following these steps:
-        Step One: Visit https://apps.twitter.com/app/new
-        Step Two: Fill out the form with dummy data. Type http://google.com in the Website input. Don't fill out the Callback URL input. Then submit the form.
-        Step Three: On the next screen, click the Keys and Access Tokens tab to get your consume key and secret.
-            Copy and paste them where the <input here> tags are inside your keys.js file.
-        Step Four: At the bottom of the page, click the Create my access token button to get your access token key and secret.
-            Copy the access token key and secret displayed at the bottom of the next screen. Paste them where the <input here> tags are inside your keys.js file.
+3. Get your Twitter API keys by following these steps:
 
-    Make a file called random.txt.
-        Inside of random.txt put the following in with no extra characters or white space:
-            spotify-this-song,"I Want it That Way"
+   * Step One: Visit <https://apps.twitter.com/app/new>
+   * Step Two: Fill out the form with dummy data. Type `http://google.com` in the Website input. Don't fill out the Callback URL input. Then submit the form.
+   * Step Three: On the next screen, click the Keys and Access Tokens tab to get your consume key and secret. 
+     * Copy and paste them where the `<input here>` tags are inside your keys.js file.
+   * Step Four: At the bottom of the page, click the `Create my access token` button to get your access token key and secret. 
+     * Copy the access token key and secret displayed at the bottom of the next screen. Paste them where the `<input here>` tags are inside your keys.js file.
 
-    Make a JavaScript file named liri.js.
+4. Make a file called `random.txt`.
 
-    At the top of the liri.js file, write the code you need to grab the data from keys.js. Then store the keys in a variable.
+   * Inside of `random.txt` put the following in with no extra characters or white space:
+     * spotify-this-song,"I Want it That Way"
 
-    Make it so liri.js can take in one of the following commands:
+5. Make a JavaScript file named `liri.js`.
 
-        my-tweets
+6. At the top of the `liri.js` file, write the code you need to grab the data from keys.js. Then store the keys in a variable.
 
-        spotify-this-song
+7. Make it so liri.js can take in one of the following commands:
 
-        movie-this
+   * `my-tweets`
 
-        do-what-it-says
+   * `spotify-this-song`
 
-What Each Command Should Do
+   * `movie-this`
 
-    node liri.js my-tweets
-        This will show your last 20 tweets and when they were created at in your terminal/bash window.
+   * `do-what-it-says`
 
-    node liri.js spotify-this-song '<song name here>'
+### What Each Command Should Do
 
-        This will show the following information about the song in your terminal/bash window
-            Artist(s)
-            The song's name
-            A preview link of the song from Spotify
-            The album that the song is from
+1. `node liri.js my-tweets`
 
-        if no song is provided then your program will default to
-            "The Sign" by Ace of Base
+   * This will show your last 20 tweets and when they were created at in your terminal/bash window.
 
-    node liri.js movie-this '<movie name here>'
+2. `node liri.js spotify-this-song '<song name here>'`
 
-        This will output the following information to your terminal/bash window:
+   * This will show the following information about the song in your terminal/bash window
+     * Artist(s)
+     * The song's name
+     * A preview link of the song from Spotify
+     * The album that the song is from
 
-          * Title of the movie.
-          * Year the movie came out.
-          * IMDB Rating of the movie.
-          * Country where the movie was produced.
-          * Language of the movie.
-          * Plot of the movie.
-          * Actors in the movie.
-          * Rotten Tomatoes Rating.
-          * Rotten Tomatoes URL.
+   * if no song is provided then your program will default to
+     * "The Sign" by Ace of Base
 
-        If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
-            If you haven't watched "Mr. Nobody," then you should: http://www.imdb.com/title/tt0485947/
-            It's on Netflix!
+3. `node liri.js movie-this '<movie name here>'`
 
-    node liri.js do-what-it-says
-        Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
-            It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
-            Feel free to change the text in that document to test out the feature for other commands.
+   * This will output the following information to your terminal/bash window:
 
-BONUS
+     ```
+       * Title of the movie.
+       * Year the movie came out.
+       * IMDB Rating of the movie.
+       * Country where the movie was produced.
+       * Language of the movie.
+       * Plot of the movie.
+       * Actors in the movie.
+       * Rotten Tomatoes Rating.
+       * Rotten Tomatoes URL.
+     ```
 
-    In addition to logging the data to your terminal/bash window, output the data to a .txt file called log.txt.
+   * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
+     * If you haven't watched "Mr. Nobody," then you should: <http://www.imdb.com/title/tt0485947/>
+     * It's on Netflix!
 
-    Make sure you append each command you run to the log.txt file.
+4. `node liri.js do-what-it-says`
+   * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
+     * It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
+     * Feel free to change the text in that document to test out the feature for other commands.
 
-    Do not overwrite your file each time you run a command.
+### BONUS
 
-Technologies Used
+* In addition to logging the data to your terminal/bash window, output the data to a .txt file called `log.txt`.
 
-    Node.js
-    Javascript
-    Package.JSON
-    NPM Modules
+* Make sure you append each command you run to the `log.txt` file. 
+
+* Do not overwrite your file each time you run a command.
+
+- - -
+
+
+## Technologies Used
+
+- Node.js
+- Javascript
+- Package.JSON
+- NPM Modules
